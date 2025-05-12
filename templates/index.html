@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepvue - Interview Practice</title>
+    <!-- Tailwind CDN as mentioned in roadmap -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto py-8 px-4">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-center text-blue-800">Prepvue</h1>
+            <p class="text-center text-gray-600">HireVue-style practice for finance and consulting</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Left side: Video -->
+            <div class="w-full md:w-1/2">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <video id="preview" autoplay muted playsinline class="w-full h-auto rounded"></video>
+                    
+                    <div class="mt-4 flex justify-center gap-4">
+                        <button id="recordButton" class="bg-red-600 text-white px-4 py-2 rounded disabled:bg-gray-400" disabled>Record</button>
+                        <button id="resetButton" class="bg-gray-600 text-white px-4 py-2 rounded">Reset Camera</button>
+                        <button id="playbackButton" class="bg-blue-600 text-white px-4 py-2 rounded hidden">View Recording</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: Question panel -->
+            <div class="w-full md:w-1/2">
+                <div class="bg-white rounded-lg shadow-md p-4 h-full">
+                    <div id="mode-selector" class="mb-6">
+                        <h2 class="text-xl font-semibold mb-4">Select Interview Mode</h2>
+                        <div class="flex flex-wrap gap-3">
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded">Behavioral</button>
+                            <button class="bg-green-500 text-white px-4 py-2 rounded">IB Technical</button>
+                            <button class="bg-purple-500 text-white px-4 py-2 rounded">Consulting Cases</button>
+                        </div>
+                        <p class="mt-4 text-gray-600 text-sm">
+                            Choose a mode to begin your practice interview session.
+                        </p>
+                    </div>
+
+                    <div id="question-panel" class="hidden">
+                        <h2 id="question-text" class="text-xl font-semibold mb-4">
+                            <!-- Question will appear here -->
+                        </h2>
+                        
+                        <div id="answer-key" class="mt-6 p-4 bg-gray-100 rounded hidden">
+                            <h3 class="font-semibold text-lg">Answer Key:</h3>
+                            <p id="answer-text" class="mt-2">
+                                <!-- Answer will appear here -->
+                            </p>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button id="next-button" class="bg-gray-800 text-white px-4 py-2 rounded hidden">
+                                Next Question
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="{{ url_for('static', filename='js/camera.js') }}"></script>
+</body>
+</html>
